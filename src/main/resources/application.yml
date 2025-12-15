@@ -1,0 +1,38 @@
+spring:
+  application:
+    name: expense-tracker-backend
+
+  datasource:
+    url: jdbc:postgresql://postgres:5432/expensetracker
+    driver-class-name: org.postgresql.Driver
+    username: ${DB_USERNAME:postgres}
+    password: ${DB_PASSWORD:password}
+
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+    show-sql: true
+
+server:
+  port: 8081
+
+firebase:
+  # Set your Firebase project id here (optional; can be inferred from credentials)
+  project-id: ""
+
+gemini:
+  api-key: "AIzaSyAuWNhP2swmtQmqs-XpcUuJOmCdx-ezgrs" # set via environment variable GEMINI_API_KEY or here for local dev
+  model: "gemini-2.5-flash"
+  base-url: "https://generativelanguage.googleapis.com"
+
+logging:
+  level:
+    root: INFO
+    org.springframework.web: INFO
+    com.ptit.expensetracker.backend: DEBUG
+
+
